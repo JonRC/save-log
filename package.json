@@ -1,13 +1,19 @@
 {
   "name": "save-log",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "repository": "https://github.com/JonRC/save-log",
   "author": "JonRC & GionvannaK <jonarc06@gmail.com & giovannakelli@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "@types/node": "^17.0.23",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
+  },
+  "bin": {
+    "save-log": "./build/index.js"
   }
 }
