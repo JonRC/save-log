@@ -1,13 +1,13 @@
 {
   "name": "save-log",
   "version": "0.0.3",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "repository": "https://github.com/JonRC/save-log",
   "author": "JonRC & GionvannaK <jonarc06@gmail.com & giovannakelli@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "linked": "npm link && rm $(which save-log) && npm link"
+    "build": "rm -rf lib && tsc",
+    "linked": "rm -f $(which save-log) && npm link"
   },
   "devDependencies": {
     "@types/node": "^17.0.23",
@@ -16,7 +16,7 @@
     "typescript": "^4.6.3"
   },
   "bin": {
-    "save-log": "./build/index.js"
+    "save-log": "./lib/index.js"
   },
   "dependencies": {
     "yargs": "^17.4.1"

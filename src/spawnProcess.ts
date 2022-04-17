@@ -1,11 +1,17 @@
 import childProcess from "child_process";
+import { createWriteStream } from "fs";
+import { Command } from "./Type/Command";
 
-export const spawnProcess = (command: string) => {
-  const spawnedProcess = childProcess.spawn(command, {
-    env: process.env,
+export const spawnProcess = (command: Command) => {
+  const spawnedProcess = childProcess.spawn(command.originalCommand, {
     shell: true,
-    stdio: [process.stdout, process.stdin, process.stderr],
+    stdio: "overlapped",
+    windowsHide: true,
   });
+
+  spawnedProcess.on("error", (data) =>
+    process.stdout.write(data?.toString() || "")
+  );
 
   return spawnedProcess;
 };

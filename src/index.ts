@@ -1,17 +1,20 @@
 #!/usr/bin/env node
 
-import { pipeline } from "stream/promises";
+import { connectFile } from "./connectFile";
+import { connectTerminal } from "./connectTerminal";
 import { parseArgv } from "./parseArgv";
 import { spawnProcess } from "./spawnProcess";
 
 const command = parseArgv(process.argv);
 
-const originalProcess = spawnProcess(command.originalCommand) as any;
+const childProcess = spawnProcess(command);
 
-// console.log(process.stdout.eventNames());
+connectTerminal(childProcess, command).catch(() => {
+  console.error("Error connecting process to terminal (stdio)");
+  // process.exit(1);
+});
 
-// pipeline(originalProcess.std)
-
-// pipeline(originalProcess.stdout, process.stdout);
-// pipeline(process.stdin, originalProcess.stdin);
-// pipeline(originalProcess.stderr, process.stderr);
+connectFile(childProcess, command).catch(() => {
+  console.error("Error connecting process to log file");
+  // process.exit(1);
+});
