@@ -16,6 +16,7 @@ In current directory, it will create a file named *command_isoDate.txt* which th
 ### Example:
 
 `$ save-log ls`
+
 `$ save-log ls -- -la`
 
 ### Disclaiming

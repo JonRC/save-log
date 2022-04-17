@@ -1,6 +1,6 @@
 {
   "name": "save-log",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./lib/index.js",
   "repository": "https://github.com/JonRC/save-log",
   "author": "JonRC & GionvannaK <jonarc06@gmail.com & giovannakelli@gmail.com>",
