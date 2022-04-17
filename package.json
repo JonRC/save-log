@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf lib && tsc",
-    "linked": "rm -f $(which save-log) && npm link"
+    "linked": "rm -f $(which save-log) && npm link",
+    "unlink": "rm -f $(which save-log)"
   },
   "devDependencies": {
     "@types/node": "^17.0.23",
