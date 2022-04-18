@@ -18,9 +18,12 @@ export const connectFile = async <T extends ChildProcess>(
     currentDirectory,
     `${fileName}_${nowDate}.${fileExtension}`
   );
-  const fileStream = createWriteStream(filePath);
-  const errorFileStream = createWriteStream(filePath);
 
-  if (childProcess.stdout) pipeline(childProcess.stdout, fileStream);
+  const outputFileStream = createWriteStream(filePath, { flags: "a" });
+  const inputFileStream = createWriteStream(filePath, { flags: "a" });
+  const errorFileStream = createWriteStream(filePath, { flags: "a" });
+
+  if (childProcess.stdout) pipeline(childProcess.stdout, outputFileStream);
+  if (childProcess.stdin) pipeline(process.stdin, inputFileStream);
   if (childProcess.stderr) pipeline(childProcess.stderr, errorFileStream);
 };
