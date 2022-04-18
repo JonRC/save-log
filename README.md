@@ -21,4 +21,5 @@ In current directory, it will create a file named *command_isoDate.txt* which th
 
 ### Disclaiming
 save-log works for all commands except for some CLIs which needs complexly user iteration.
+
 For example, it works for `sudo su` but don't work for `npm init`.
