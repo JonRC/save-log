@@ -12,12 +12,17 @@ The log file is written in real-time.
 
 In the current directory, it will create a file named *command_isoDate.txt* where the log will be written in real-time.
 
+### Flags
+|  Flag  | alias | Description                        |
+|--------|-------|------------------------------------|
+| --path | -p    | Specify a path or file to save log |
+
 
 ### Example:
 
 `$ save-log ls`
 
-`$ save-log ls -- -la`
+`$ save-log ls -p test.txt -- -la`
 
 ### Disclaimer
 save-log works for all commands except for some CLIs which need complex user interaction.

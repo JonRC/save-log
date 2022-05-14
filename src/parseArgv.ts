@@ -7,11 +7,17 @@ export const parseArgv = (argv: string[]): Command => {
     .strictOptions()
     .demandCommand(1, "Required at least one command \n Example: save-log cd")
     .scriptName("save-log")
+    .option("path", {
+      alias: "p",
+      type: "string",
+      description: "Path to save log file",
+    })
     .parseSync();
 
   const originalCommand = yargsParsed._.join(" ");
 
   return {
     originalCommand,
+    path: yargsParsed.path,
   };
 };
